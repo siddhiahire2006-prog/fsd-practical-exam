@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Student Registration</title>
+<style>
+body { font-family: Arial; text-align: center; background: lightyellow; }
+input, select, button { padding: 8px; margin: 5px; }
+table { margin: 20px auto; border-collapse: collapse; }
+th, td { border: 1px solid black; padding: 15px; }
+</style>
+</head>
+<body>
+
+<h2>Student Registration</h2>
+
+Name:<input id="name" placeholder="Student Name"><br>
+Roll No: <input id="roll" placeholder="Roll No."><br>
+
+Course:
+<select id="course">
+  <option>IT</option>
+  <option>AIDS</option>
+  <option>Computer</option>
+</select><br>
+
+<button onclick="addStudent()">Add Student</button>
+
+<table>
+<tr><th>Name</th><th>Roll No.</th><th>Course</th></tr>
+<tbody id="data"></tbody>
+</table>
+
+<script>
+function addStudent() {
+  let n = document.getElementById("name").value;
+  let r = document.getElementById("roll").value;
+  let c = document.getElementById("course").value;
+
+  if (n == "" || r == "") {
+    alert("Please fill all fields");
+    return;
+  }
+
+  document.getElementById("data").innerHTML +=
+    `<tr><td>${n}</td><td>${r}</td><td>${c}</td></tr>`;
+
+  document.getElementById("name").value = "";
+  document.getElementById("roll").value = "";
+}
+</script>
+
+</body>
+</html>
